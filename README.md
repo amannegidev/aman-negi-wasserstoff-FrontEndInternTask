@@ -1,12 +1,34 @@
-# React + Vite
+ Real-Time Collaborative Editor
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A real-time collaborative text editor built with React, TipTap, TailwindCSS, and Socket.io. Multiple users can edit the same document simultaneously with live updates and user-specific highlights. 
 
-Currently, two official plugins are available:
+This project demonstrates how to implement real-time collaboration using WebSockets and a rich text editor. It supports multiple users working on the same document at the same time with visible distinctions for each user's edits and identity.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+* Features
 
-## Expanding the ESLint configuration
+- Rich text editing with support for formatting, images, links, lists, and more
+- Real-time collaboration using WebSockets
+- Unique usernames for each user session
+- Live user color indicators and name display
+- Responsive and minimal UI using TailwindCSS
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+# Demo
+
+- Live demo: [https://your-live-link.vercel.app](https://your-live-link.vercel.app)
+
+> Open in multiple browser tabs or windows to see real-time collaboration in action.
+
+# Tech Stack
+
+- Frontend: React, TipTap, TailwindCSS
+- Real-time Backend: Node.js with Socket.io
+- Deployment: Vercel
+
+# Installation
+
+Clone the repository and install dependencies:
+```bash
+git clone https://github.com/your-username/collab-editor.git
+cd collab-editor
+npm install
+npm run dev
