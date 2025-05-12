@@ -10,7 +10,8 @@ import Highlight from '@tiptap/extension-highlight'
 import { useEffect, useRef, useState } from 'react'
 import { mergeAttributes } from '@tiptap/core'
 import { Image } from '@tiptap/extension-image'
-import '../../src/app.css'
+import '../index.css'
+
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {

@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+/* Add this to your styles to ensure lists and blockquotes are styled correctly */
+.prose ul {
+  list-style-type: disc; /* Make sure bullet lists have bullets */
+}
+
+.prose ol {
+  list-style-type: decimal; /* Ensure ordered lists show numbers */
+}
+
+.prose blockquote {
+  border-left: 4px solid #ccc;
+  padding-left: 10px;
+  margin-left: 10px;
+  font-style: italic;
+  color: #555;
+}
+
+
+
+
+.resizable {
+  max-width: 100%;
+  height: auto;
+  resize: both;
+  overflow: hidden;
+}
+
+
+.prose a {
+  color: blue;
+  text-decoration: underline;
+}
+
+/* Ensure the marker size scales with font-size */
+.prose ul li::marker,
+.prose ol li::marker {
+  font-size: inherit !important;  /* Force it to inherit font-size */
+  font-weight: inherit;           /* Ensure font weight is inherited */
+  line-height: inherit;           /* Ensure line height is inherited */
+}
+
+/* Apply font-size to the entire list */
+.prose ul li,
+.prose ol li {
+  font-size: inherit;
+}
+
+/* Optional: If you need to control the marker style more explicitly */
+.prose ul li::marker {
+  font-size: inherit; /* Use font-size from li */
+}
+
+.prose ol li::marker {
+  font-size: inherit; /* Use font-size from li */
+}
