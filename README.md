@@ -15,10 +15,9 @@ This project demonstrates how to implement real-time collaboration using WebSock
 - Live user color indicators and name display
 - Responsive and minimal UI using TailwindCSS
 
-# Demo https://aman-negi-wasserstoff-front-end-intern-task.vercel.app/
 
-- Live demo: https://aman-negi-wasserstoff-front-end-intern-task.vercel.app/
-> Open in multiple browser tabs or windows to see real-time collaboration in action.
+ Live demo: https://aman-negi-wasserstoff-front-end-intern-task.vercel.app/
+ Open in multiple browser tabs or windows to see real-time collaboration in action.
 
 #####
 the backend isn't deployed yet so user can't collaborate for now but i will deploy it soon.
