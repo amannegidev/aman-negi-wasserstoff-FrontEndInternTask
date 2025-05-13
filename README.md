@@ -17,7 +17,7 @@ This project demonstrates how to implement real-time collaboration using WebSock
 
 # Demo
 
-- Live demo: component-library-sdk-ohkw-pj48s9s4h.vercel.app
+- Live demo: [component-library-sdk-ohkw-pj48s9s4h.vercel.app](https://aman-negi-wasserstoff-front-end-intern-task.vercel.app/)
 > Open in multiple browser tabs or windows to see real-time collaboration in action.
 
 # Tech Stack
