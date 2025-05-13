@@ -202,106 +202,102 @@ useEffect(() => {
   }
 
 return (
-  <div className="editor-container max-w-7xl mx-auto px-4 py-10 bg-blue-100">
-    {/* <h2 className="text-4xl font-[ubuntu] text-center text-gray-800 mb-8 tracking-tight font-display">
-       Collaborative Editor
-    </h2> */}
+<div className="editor-container w-full max-w-7xl mx-auto px-2 sm:px-4 py-4 sm:py-8 bg-blue-100">
+  {editor && (
+    <div className="toolbar overflow-x-auto flex flex-wrap items-center gap-2 sm:gap-3 bg-blue-100 border border-gray-200 p-2 sm:p-4 rounded-xl shadow mb-4 sm:mb-6">
+      {toolbarButton(<FontAwesomeIcon icon={faBold} />, () => editor.chain().focus().toggleBold().run(), editor.isActive('bold'))}
+      {toolbarButton(<FontAwesomeIcon icon={faItalic} />, () => editor.chain().focus().toggleItalic().run(), editor.isActive('italic'))}
+      {toolbarButton(<FontAwesomeIcon icon={faUnderline} />, () => editor.chain().focus().toggleUnderline().run(), editor.isActive('underline'))}
 
-   {editor && (
-  <div className="toolbar overflow-x-auto flex flex-wrap gap-3 bg-blue-100 border border-gray-200 p-4 rounded-xl shadow mb-6">
+      <div className="flex items-center gap-1 sm:gap-2 bg-white rounded px-2 sm:px-4">
+        <FontAwesomeIcon icon={faPalette} className="text-gray-700" />
+        <input
+          type="color"
+          value={color}
+          onChange={(e) => {
+            setColor(e.target.value);
+            editor.chain().focus().setColor(e.target.value).run();
+          }}
+          className="w-6 h-6 border-none cursor-pointer rounded"
+        />
+      </div>
 
-    {toolbarButton(<FontAwesomeIcon icon={faBold} />, () => editor.chain().focus().toggleBold().run(), editor.isActive('bold'))}
-    {toolbarButton(<FontAwesomeIcon icon={faItalic} />, () => editor.chain().focus().toggleItalic().run(), editor.isActive('italic'))}
-    {toolbarButton(<FontAwesomeIcon icon={faUnderline} />, () => editor.chain().focus().toggleUnderline().run(), editor.isActive('underline'))}
+      <div className="flex items-center gap-1 sm:gap-2 bg-white rounded px-2 sm:px-4">
+        <FontAwesomeIcon icon={faHighlighter} className="text-gray-700" />
+        <input
+          type="color"
+          value={bgColor}
+          onChange={(e) => {
+            setBgColor(e.target.value);
+            editor.chain().focus().setHighlight({ color: e.target.value }).run();
+          }}
+          className="w-6 h-6 border-none cursor-pointer rounded"
+        />
+      </div>
 
-    <div className="flex items-center gap-2 bg-white rounded px-4">
-      <FontAwesomeIcon icon={faPalette} className="text-gray-700" />
-      <input
-        type="color"
-        value={color}
-        onChange={(e) => {
-          setColor(e.target.value);
-          editor.chain().focus().setColor(e.target.value).run();
-        }}
-        className="w-6 h-6 border-none cursor-pointer rounded"
-      />
-    </div>
+      {toolbarButton(<FontAwesomeIcon icon={faAlignLeft} />, () => editor.chain().focus().setTextAlign('left').run())}
+      {toolbarButton(<FontAwesomeIcon icon={faAlignCenter} />, () => editor.chain().focus().setTextAlign('center').run())}
+      {toolbarButton(<FontAwesomeIcon icon={faAlignRight} />, () => editor.chain().focus().setTextAlign('right').run())}
 
-    <div className="flex items-center gap-2 bg-white rounded px-4">
-      <FontAwesomeIcon icon={faHighlighter} className="text-gray-700" />
-      <input
-        type="color"
-        value={bgColor}
-        onChange={(e) => {
-          setBgColor(e.target.value);
-          editor.chain().focus().setHighlight({ color: e.target.value }).run();
-        }}
-        className="w-6 h-6 border-none cursor-pointer rounded"
-      />
-    </div>
-
-    {toolbarButton(<FontAwesomeIcon icon={faAlignLeft} />, () => editor.chain().focus().setTextAlign('left').run())}
-    {toolbarButton(<FontAwesomeIcon icon={faAlignCenter} />, () => editor.chain().focus().setTextAlign('center').run())}
-    {toolbarButton(<FontAwesomeIcon icon={faAlignRight} />, () => editor.chain().focus().setTextAlign('right').run())}
-
-    <select
-      onChange={(e) => setFontSize(e.target.value)}
-      defaultValue=""
-      className="text-sm border border-gray-300 rounded-md px-3 py-1 bg-white"
-    >
-      <option disabled value="">Font Size</option>
-      {[12, 14, 16, 18, 24, 32, 40, 48, 64, 72].map(size => (
-        <option key={size} value={`${size}px`}>{size}px</option>
-      ))}
-    </select>
-
-    {toolbarButton(<FontAwesomeIcon icon={faListUl} />, () => editor.chain().focus().toggleBulletList().run(), editor.isActive('bulletList'))}
-    {toolbarButton(<FontAwesomeIcon icon={faListOl} />, () => editor.chain().focus().toggleOrderedList().run(), editor.isActive('orderedList'))}
-    {toolbarButton(<FontAwesomeIcon icon={faQuoteRight} />, () => editor.chain().focus().toggleBlockquote().run(), editor.isActive('blockquote'))}
-
-    <button
-      onClick={() => {
-        const url = prompt("Enter URL");
-        if (url) editor.chain().focus().extendMarkRange('link').setLink({ href: url }).run();
-      }}
-      className="px-3 py-1 bg-white hover:bg-blue-200 text-blue-800 rounded-md shadow"
-    >
-      <FontAwesomeIcon icon={faLink} />
-    </button>
-
-    {toolbarButton(<FontAwesomeIcon icon={faImage} />, addImageFromDevice)}
-    {toolbarButton(<FontAwesomeIcon icon={faUndo} />, () => editor.chain().focus().undo().run())}
-    {toolbarButton(<FontAwesomeIcon icon={faRedo} />, () => editor.chain().focus().redo().run())}
-    {toolbarButton(<FontAwesomeIcon icon={faDeleteLeft} />, resetContent)}
-    {toolbarButton(<FontAwesomeIcon icon={faDownload} /> ,saveToFile)}
-
-    {editor.isActive('image') && (
       <select
-        onChange={(e) => resizeImage(e.target.value)}
+        onChange={(e) => setFontSize(e.target.value)}
         defaultValue=""
-        className="text-sm border border-gray-300 rounded-md px-3 py-1 bg-white"
+        className="text-sm border border-gray-300 rounded px-2 py-1 bg-white"
       >
-        <option disabled value="">Resize Image</option>
-        {['100px', '200px', '300px', '500px', '100%'].map(size => (
-          <option key={size} value={size}>{size}</option>
+        <option disabled value="">Font Size</option>
+        {[12, 14, 16, 18, 24, 32, 40, 48, 64, 72].map(size => (
+          <option key={size} value={`${size}px`}>{size}px</option>
         ))}
       </select>
-    )}
-  </div>
-)}
 
+      {toolbarButton(<FontAwesomeIcon icon={faListUl} />, () => editor.chain().focus().toggleBulletList().run(), editor.isActive('bulletList'))}
+      {toolbarButton(<FontAwesomeIcon icon={faListOl} />, () => editor.chain().focus().toggleOrderedList().run(), editor.isActive('orderedList'))}
+      {toolbarButton(<FontAwesomeIcon icon={faQuoteRight} />, () => editor.chain().focus().toggleBlockquote().run(), editor.isActive('blockquote'))}
 
-    <div className="border border-gray-300 rounded-xl p-6 bg-white shadow-sm min-h-[300px]">
-      <EditorContent editor={editor} />
+      <button
+        onClick={() => {
+          const url = prompt("Enter URL");
+          if (url) editor.chain().focus().extendMarkRange('link').setLink({ href: url }).run();
+        }}
+        className="px-2 py-1 bg-white hover:bg-blue-200 text-blue-800 rounded-md shadow"
+      >
+        <FontAwesomeIcon icon={faLink} />
+      </button>
+
+      {toolbarButton(<FontAwesomeIcon icon={faImage} />, addImageFromDevice)}
+      {toolbarButton(<FontAwesomeIcon icon={faUndo} />, () => editor.chain().focus().undo().run())}
+      {toolbarButton(<FontAwesomeIcon icon={faRedo} />, () => editor.chain().focus().redo().run())}
+      {toolbarButton(<FontAwesomeIcon icon={faDeleteLeft} />, resetContent)}
+      {toolbarButton(<FontAwesomeIcon icon={faDownload} />, saveToFile)}
+
+      {editor.isActive('image') && (
+        <select
+          onChange={(e) => resizeImage(e.target.value)}
+          defaultValue=""
+          className="text-sm border border-gray-300 rounded px-2 py-1 bg-white"
+        >
+          <option disabled value="">Resize Image</option>
+          {['100px', '200px', '300px', '500px', '100%'].map(size => (
+            <option key={size} value={size}>{size}</option>
+          ))}
+        </select>
+      )}
     </div>
+  )}
 
-    {lastEditor && (
-      <p className="text-sm text-gray-500 mt-4 text-center font-medium tracking-wide">
-        Last edit by <span className="font-semibold text-black">{lastEditor}</span>
-      </p>
-    )}
+  <div className="border border-gray-300 rounded-xl p-4 sm:p-6 bg-white shadow-sm min-h-[50vh]">
+    <EditorContent editor={editor} />
   </div>
+
+  {lastEditor && (
+    <p className="text-xs sm:text-sm text-gray-500 mt-3 sm:mt-4 text-center font-medium">
+      Last edit by <span className="font-semibold text-black">{lastEditor}</span>
+    </p>
+  )}
+</div>
+
 );
+
 
 
 }
