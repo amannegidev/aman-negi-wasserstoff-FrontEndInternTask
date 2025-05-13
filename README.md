@@ -20,6 +20,10 @@ This project demonstrates how to implement real-time collaboration using WebSock
 - Live demo: [component-library-sdk-ohkw-pj48s9s4h.vercel.app](https://aman-negi-wasserstoff-front-end-intern-task.vercel.app/)
 > Open in multiple browser tabs or windows to see real-time collaboration in action.
 
+#####
+the backend isn't deployed yet so user can't collaborate for now but i will deploy it soon.
+#####
+
 # Tech Stack
 
 - Frontend: React, TipTap, TailwindCSS
