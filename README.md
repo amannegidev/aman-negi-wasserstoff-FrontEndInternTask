@@ -10,8 +10,7 @@ This project demonstrates how to implement real-time collaboration using WebSock
 * Features
 
 - Rich text editing with support for formatting, images, links, lists, and more
-- Real-time collaboration using WebSockets
-- Unique usernames for each user session
+- Real-time collaboration using WebSocket
 - Live user color indicators and name display
 - Responsive and minimal UI using TailwindCSS
 
