@@ -4,6 +4,9 @@ A real-time collaborative text editor built with React, TipTap, TailwindCSS, and
 
 This project demonstrates how to implement real-time collaboration using WebSockets and a rich text editor. It supports multiple users working on the same document at the same time with visible distinctions for each user's edits and identity.
 
+![Banner](https://github.com/user-attachments/assets/7f59ac07-363b-420a-9c31-5033c27aa3cc.jpeg)
+
+
 * Features
 
 - Rich text editing with support for formatting, images, links, lists, and more
@@ -28,7 +31,7 @@ This project demonstrates how to implement real-time collaboration using WebSock
 
 Clone the repository and install dependencies:
 ```bash
-git clone https://github.com/amannegidev/collab-editor.git
+git clone https://github.com/amannegidev/aman-negi-wasserstoff-FrontEndInternTask.git
 cd collab-editor
 npm install
 npm run dev
