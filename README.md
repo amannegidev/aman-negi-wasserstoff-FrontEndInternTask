@@ -28,7 +28,7 @@ This project demonstrates how to implement real-time collaboration using WebSock
 
 Clone the repository and install dependencies:
 ```bash
-git clone https://github.com/your-username/collab-editor.git
+git clone https://github.com/amannegidev/collab-editor.git
 cd collab-editor
 npm install
 npm run dev
